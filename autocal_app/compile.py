@@ -4,7 +4,7 @@ class Item:     #項の中身(名前、項)
         if item[0] == '-':
             self.number = -1
             item = item[1:]
-            
+
         if item.isdecimal():
             self.number *= int(item)
             self.literal_expr = ''
@@ -63,11 +63,11 @@ class cal:
                 output.append(self.compile(self,partition))
 
             elif partition == '+'or partition == '-':
-                output[-2] = self.add_sub_cal(self,output[-2],output[-1],partition)
+                output[-2] = self.__add_sub_cal(self,output[-2],output[-1],partition)
                 output.pop(-1)
 
             elif partition == '*':
-                output[-2] = self.mul_cal(self,output[-2],output[-1])
+                output[-2] = self.__mul_cal(self,output[-2],output[-1])
                 output.pop(-1)
 
             else:
@@ -75,7 +75,7 @@ class cal:
 
         return output[0]
 
-    def mul_cal(self,former,latter):
+    def __mul_cal(self,former,latter):
         output= ''
         F_formura = expr_list(former)
         L_formura = expr_list(latter)
@@ -90,9 +90,9 @@ class cal:
                     number = '-'
                 output.expr_compose.append( Item( number + literal_expr ))
 
-        return self.cleaner(output.arrange())
+        return self.__cleaner(output.arrange())
 
-    def add_sub_cal(self,former,latter,code):
+    def __add_sub_cal(self,former,latter,code):
         if latter[0] != '-':
             latter = '+' + latter
 
@@ -102,9 +102,9 @@ class cal:
         else:
             output = former + latter.replace('+','/').replace('-','+').replace('/','-')
 
-        return self.cleaner(output)
+        return self.__cleaner(output)
 
-    def cleaner(expr):
+    def __cleaner(expr):
         unclean_list = expr_list(expr)
         cleaned_list = expr_list('')
         for nuclean_list_part in unclean_list.expr_compose:

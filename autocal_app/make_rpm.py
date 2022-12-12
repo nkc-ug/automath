@@ -4,12 +4,12 @@ class Method:
         if length < 2 or expr.isdigit():
             return expr
 
-        if self.find_extra_brackets(expr):
+        if self.__find_extra_brackets(expr):
             expr = expr[1:-1]
         
-        return self.find_add_sub(self,expr) or self.find_mul(self,expr) or expr
+        return self.__find_add_sub(self,expr) or self.__find_mul(self,expr) or expr
 
-    def find_extra_brackets(expr):
+    def __find_extra_brackets(expr):
         brackets_deep = 0
         for c in expr[:-1]:
             if c == '(':
@@ -21,7 +21,7 @@ class Method:
                 return False
         return True
 
-    def find_add_sub(self,expr):
+    def __find_add_sub(self,expr):
         if len(expr) < 2 or expr.isdigit():
             return None
         output = []
@@ -30,7 +30,7 @@ class Method:
         brackets_deep = 0
         st = 0
         for ct, c in enumerate(expr):
-            brackets_deep = self.measure_brackets_deep(brackets_deep,c)
+            brackets_deep = self.__measure_brackets_deep(brackets_deep,c)
             if brackets_deep > 0:
                 continue
 
@@ -51,7 +51,7 @@ class Method:
         output.append(code_stack[-1])
         return output
 
-    def find_mul(self,expr):
+    def __find_mul(self,expr):
         if len(expr) < 2 or expr.isdigit():
             return None
         output = []
@@ -59,7 +59,7 @@ class Method:
         deep = 0
         st = 0
         for ct, c in enumerate(expr):
-            deep = self.measure_brackets_deep(deep,c)
+            deep = self.__measure_brackets_deep(deep,c)
             if deep == 0 and c != '-':
                 if c == '*':
                     st = ct + 1
@@ -79,19 +79,19 @@ class Method:
                     code_insert_timing = 1
         return output
 
-    def measure_brackets_deep(brackets_deep,c):
+    def __measure_brackets_deep(brackets_deep,c):
         if c == '(':
             brackets_deep += 1
         elif c == ')':
             brackets_deep -= 1
         return brackets_deep
 
-    def convert_list_to_str(self,list):
+    def __convert_list_to_str(self,list):
         array = []
         for cell in list:
             if isinstance(cell, str):
                 array.append(cell)
             else:
-                array += self.convert_list_to_str(self,cell)
+                array += self.__convert_list_to_str(self,cell)
 
         return array
