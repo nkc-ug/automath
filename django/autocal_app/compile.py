@@ -54,13 +54,13 @@ class expr_list:
         return output
 
 class cal:
-    def compile(self,exper):
+    def deploy(self,exper):
         if isinstance(exper,str) or len(exper) == 0:
             return exper
         output = []
         for partition in exper:
             if  isinstance(partition,list):
-                output.append(self.compile(self,partition))
+                output.append(self.deploy(self,partition))
 
             elif partition == '+'or partition == '-':
                 output[-2] = self.__add_sub_cal(self,output[-2],output[-1],partition)
