@@ -1,0 +1,20 @@
+#header{
+    background-color: #f6e9e4;
+}
+.bg-color{
+    background-color: #f4f5f7;
+}
+.list-group-item{
+    background-color: #f4f5f7;
+}
+footer{
+    background-color: #f4f5f7;
+}
+#button1{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+#button2{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
