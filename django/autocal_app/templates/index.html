@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
     <head>
-        <meta charset="utf-8">
-        <title>AppName</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, maximum-scale=1.0, user-scalable=yes">
+        
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        
+        <title>UG-AutoMath</title>
     </head>
     <body>
+        <div class="container-fluid d-inline-block" id="header">
+            <header class="text-center py-3 px-0 mx-0 mb-0 mt-1 border-bottom">
+                <span class="fs-4">UG-AUTOMATH</span>
+            </header>
+        </div>
+        <div class="bg-color">
+            <div class="container-fluid">
+                <form class="mx-auto w-100 d-inline-block">
+                    <div class="text-center">
+                        <h1 class="mt-3">
+                            <label for="inputcalc" class="form-label">
+                                式展開機
+                            </label>
+                        </h1>
+                        <p class="form-text">
+                            下のテキストボックスに入力された文字を含む整式を展開・整理します。
+                        </p> 
+                        <div class="mb-3 mx-auto" style="max-width: 600px;">
+                            <input type="text" class="form-control text-start" placeholder="（例）(x-2)(2x-a)2-8ax" aria-describedby="inputGroup-sizing-sm" id="inputcalc">
+                        </div>
+                        <button type="button" class="btn btn-outline-success btn-sm mb-3" id="button1">計算</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm mb-3" id="button2">リセット</button>
+                    </div>
+                </form>
+                <div class="border-bottom border-dark mb-3">
+                    <h2 class="mb-2">
+                        使用方法
+                    </h2>
+                </div>
+                <h2>
+                    式の入力方式
+                </h2>
+                <ul class="list-group mt-2 mb-3">
+                    <li class="list-group-item">
+                        変数は半角アルファベット1文字(大文字小文字どちらでも可)です。
+                    </li>
+                    <li class="list-group-item">
+                        (x-1)<sup>n</sup>は｢(x-1)n｣と入力してください。
+                    </li>
+                    <li class="list-group-item">
+                        5ab<sup>2</sup>cの場合は｢5ab2c｣と入力してください。
+                    </li>
+                    <li class="list-group-item">
+                        括弧の入れ子もできます。その場合、括弧は全て()を使用してください。
+                    </li>
+                    <li class="list-group-item">
+                        文字定数は無くa~zまで変数として扱います。
+                    </li>
+                </ul>
+                <h3>
+                    例
+                </h3>
+            </div>
+        </div>    
     </body>
+    <footer>
 
+    </footer>
 </html>
